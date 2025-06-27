@@ -16,13 +16,13 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public void addProduct(ProductDTO productDTO) {
+    public Product addProduct(ProductDTO productDTO) {
         Product product = new Product();
         product.setName(productDTO.name());
         product.setDescription(productDTO.description());
         product.setPrice(productDTO.price());
         product.setType(productDTO.type());
-        productRepository.save(product);
+        return productRepository.save(product);
     }
 
     public List<Product> listProducts() {
