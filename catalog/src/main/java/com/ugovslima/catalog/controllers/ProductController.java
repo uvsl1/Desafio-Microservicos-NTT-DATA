@@ -3,6 +3,7 @@ package com.ugovslima.catalog.controllers;
 
 import com.ugovslima.catalog.domain.Product;
 import com.ugovslima.catalog.dtos.ProductDTO;
+import com.ugovslima.catalog.exceptions.ResourceNotFoundException;
 import com.ugovslima.catalog.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
