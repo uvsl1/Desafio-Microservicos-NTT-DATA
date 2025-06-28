@@ -2,7 +2,6 @@ package com.ugovslima.catalog.controllers;
 
 
 import com.ugovslima.catalog.domain.Product;
-import com.ugovslima.catalog.domain.enums.ProductType;
 import com.ugovslima.catalog.dtos.ProductDTO;
 import com.ugovslima.catalog.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +25,7 @@ public class ProductController {
                 savedProduct.getId(),
                 savedProduct.getName(),
                 savedProduct.getDescription(),
-                savedProduct.getPrice(),
-                savedProduct.getType()
+                savedProduct.getPrice()
         );
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
@@ -39,8 +37,7 @@ public class ProductController {
                         product.getId(),
                         product.getName(),
                         product.getDescription(),
-                        product.getPrice(),
-                        product.getType()
+                        product.getPrice()
                 ))
                 .toList();
         return ResponseEntity.ok(dtos);
@@ -53,25 +50,9 @@ public class ProductController {
                         product.getId(),
                         product.getName(),
                         product.getDescription(),
-                        product.getPrice(),
-                        product.getType()
+                        product.getPrice()
                 ))
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
-
-    @GetMapping("/tipo/{tipo}")
-    public ResponseEntity<List<ProductDTO>> getProductsByType(@PathVariable ProductType tipo) {
-        List<ProductDTO> dtos = productService.getProductsByType(tipo).stream()
-                .map(product -> new ProductDTO(
-                        product.getId(),
-                        product.getName(),
-                        product.getDescription(),
-                        product.getPrice(),
-                        product.getType()
-                ))
-                .toList();
-        return ResponseEntity.ok(dtos);
-
+                .orElseThrow(() -> new ResourceNotFoundException("Produto com id " + id + " não encontrado"));
     }
 }

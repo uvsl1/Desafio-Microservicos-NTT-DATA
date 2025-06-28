@@ -1,6 +1,5 @@
 package com.ugovslima.catalog.domain;
 
-import com.ugovslima.catalog.domain.enums.ProductType;
 import jakarta.persistence.*;
 
 @Entity
@@ -20,18 +19,14 @@ public class Product {
     @Column(nullable = false)
     private Double price;
 
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private ProductType type;
-
     public Product() {
     }
 
-    public Product(String name, String description, Double price, ProductType type) {
+    public Product(String name, String description, Double price) {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.type = type;
+
     }
 
     public Long getId() {
@@ -66,14 +61,6 @@ public class Product {
         this.price = price;
     }
 
-    public ProductType getType() {
-        return type;
-    }
-
-    public void setType(ProductType type) {
-        this.type = type;
-    }
-
     @Override
     public String toString() {
         return "Product{" +
@@ -81,7 +68,6 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", type=" + type +
                 '}';
     }
 }

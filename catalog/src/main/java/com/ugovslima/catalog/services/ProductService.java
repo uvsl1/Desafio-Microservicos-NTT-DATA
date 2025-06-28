@@ -1,7 +1,6 @@
 package com.ugovslima.catalog.services;
 
 import com.ugovslima.catalog.domain.Product;
-import com.ugovslima.catalog.domain.enums.ProductType;
 import com.ugovslima.catalog.dtos.ProductDTO;
 import com.ugovslima.catalog.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,6 @@ public class ProductService {
         product.setName(productDTO.name());
         product.setDescription(productDTO.description());
         product.setPrice(productDTO.price());
-        product.setType(productDTO.type());
         return productRepository.save(product);
     }
 
@@ -31,10 +29,6 @@ public class ProductService {
 
     public Optional<Product> getProductById(Long id) {
         return productRepository.findById(id);
-    }
-
-    public List<Product> getProductsByType(ProductType type) {
-        return productRepository.findByType(type);
     }
 
 }
