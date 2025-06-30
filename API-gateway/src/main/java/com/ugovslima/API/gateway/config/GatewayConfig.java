@@ -14,6 +14,9 @@ public class GatewayConfig {
                 .route("catalog-microservice", r -> r
                         .path("/produtos/**")
                         .uri("lb://catalog-microservice"))
+                .route("order-simulator-microservice", r -> r
+                        .path("/simular-pedido/**")
+                        .uri("lb://order-simulator-microservice"))
                 .build();
     }
 }
