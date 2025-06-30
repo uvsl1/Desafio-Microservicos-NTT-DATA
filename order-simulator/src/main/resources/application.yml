@@ -1,2 +1,12 @@
 server:
   port: 8200
+
+spring:
+  application:
+    name: order-simulator-microservice
+
+eureka:
+  client:
+    enabled: false
+    service-url:
+      defaultZone: http://localhost:8600/eureka
