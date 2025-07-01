@@ -9,3 +9,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8600/eureka
+
+auth:
+  token: MICROSERVICES_TOKEN
