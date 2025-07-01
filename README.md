@@ -8,6 +8,7 @@ Este projeto foi desenvolvido como parte de um [desafio técnico da NTT DATA em 
 - [Visão Geral](#visão-geral)
 - [Instalação](#instalação)
 - [Uso](#uso)
+- [Autenticação](#autenticação)
 - [Endpoints da API](#endpoints-da-api)
 
 ## Tecnologias Utilizadas
