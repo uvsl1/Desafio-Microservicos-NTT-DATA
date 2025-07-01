@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/simular-pedido")
+@RequestMapping("/pedidos")
 public class OrderSimulatorController {
 
     @Autowired
     private OrderSimulatorService orderSimulatorService;
 
-    @PostMapping
+    @PostMapping("/simular")
     public ResponseEntity<OrderSimulatorResponseDTO> simulateOrder(@RequestBody OrderSimulatorRequestDTO request) {
         OrderSimulatorResponseDTO response = orderSimulatorService.simulateOrder(request);
         return ResponseEntity.ok(response);
