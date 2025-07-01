@@ -48,6 +48,18 @@ Para executar o projeto, você precisará ter o Java 21 e o Maven instalados em 
 
 Após iniciar os microserviços, você pode acessar a API Gateway em `http://localhost:8700` pelo Postman ou outro cliente HTTP.
 
+## Autenticação
+
+Todas as requisições à API Gateway exigem autenticação via token, cujo valor é `MICROSERVICES_TOKEN`.
+Inclua o header `Authorization` com o valor `Bearer MICROSERVICES_TOKEN` em cada requisição.
+
+Exemplo de uso com `curl`:
+
+```sh
+
+curl -i -H "Authorization: Bearer MICROSERVICES_TOKEN" http://localhost:8700/produtos
+```
+
 ## Endpoints da API
 
 ### Catalog Microservice
