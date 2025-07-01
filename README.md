@@ -5,6 +5,7 @@ Este projeto foi desenvolvido como parte de um [desafio técnico da NTT DATA em 
 ## Conteúdos
 
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Visão Geral](#visão-geral)
 - [Instalação](#instalação)
 - [Uso](#uso)
 - [Endpoints da API](#endpoints-da-api)
@@ -20,6 +21,19 @@ Este projeto foi desenvolvido como parte de um [desafio técnico da NTT DATA em 
     - Spring Data JPA
     - H2 Database
     - Maven
+
+## Visão Geral
+
+O projeto é composto por dois microserviços principais:
+1. **Catalog Microservice**: Gerencia o catálogo de produtos, permitindo adicionar e listar produtos. `porta: 8100`
+
+2. **Order Simulator Microservice**: Simula a criação de pedidos com base nos produtos do catálogo. `porta: 8200`
+
+3. **API Gateway**: Roteia as requisições para os microserviços correspondentes. `porta: 8700`
+
+4. **Service Discovery (Eureka)**: Permite que os microserviços se registrem e descubram uns aos outros. `porta: 8600`
+
+5. **Banco de dados**: Utilizado H2Database para persistência de dados em memória apenas no microserviço 1 (catálogo).
 
 ## Instalação
 
